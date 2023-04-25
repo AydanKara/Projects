@@ -1,5 +1,6 @@
 /* common styles */
 html {
+    /*! 10px/16px = 0.625px * 100% */
     font-size: 62.5%;
     box-sizing: border-box;
 }
