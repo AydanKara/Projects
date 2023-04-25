@@ -12,6 +12,27 @@ body {
 }
 /* end of common styles */
 
+/* navbar */
+/* sidebar */
+.sidebar {
+    width: 8rem;
+    height: 100%;
+    background-color: #eee;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon {
+    width: 2rem;
+    height: 2rem;
+    background-color: #222;
+}
+/* end of sidebar */
+/* end of navbar */
+
 
 
 
