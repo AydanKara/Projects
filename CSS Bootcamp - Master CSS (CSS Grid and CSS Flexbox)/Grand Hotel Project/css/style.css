@@ -423,6 +423,7 @@ body {
     margin: auto;
     background-color: #b85d1c;
 }
+
 /* end of common header */
 
 /* rooms */
@@ -435,6 +436,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .rooms-card {
     width: 60rem;
     margin: 5rem;
@@ -505,6 +507,7 @@ body {
     color: #ddd;
     background-color: #b85d1c;
 }
+
 /* end of rooms */
 
 /* customers */
@@ -562,6 +565,7 @@ body {
     font-size: 1.3rem;
     font-style: italic;
 }
+
 /* end of customers */
 
 /* footer */
@@ -678,4 +682,28 @@ body {
 .text-right span {
     color: gold;
 }
+
 /* end of footer */
+
+@media (max-width: 1400px) {
+    .customers-card-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .customer-card:first-child {
+        margin-bottom: 3rem;
+    }
+
+    .main-part {
+        flex-direction: column;
+    }
+
+    .footer-list {
+        display: flex;
+    }
+
+    .footer-list-item {
+        margin-right: 3rem;
+    }
+}
