@@ -89,6 +89,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    z-index: 5;
     transition: left .8s cubic-bezier(1, 0, 0, 1);
 }
 
@@ -705,5 +706,63 @@ body {
 
     .footer-list-item {
         margin-right: 3rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-us {
+        flex-direction: column;
+        padding-bottom: 20rem;
+    }
+
+    .about-us-content {
+        margin-bottom: 13rem;
+    }
+
+    .image {
+        width: 25rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .banner {
+        text-align: center;
+    }
+
+    .banner-heading {
+        font-size: 4.7rem;
+    }
+
+    .banner-paragraph {
+        font-size: 2.6rem;
+    }
+
+    .banner-button {
+        width: 16rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 750px) {
+    
+    .customer-card {
+        flex-direction: column;
+        width: 20rem;
+    }
+
+    .customer-image {
+        margin-left: 0;
+    }
+
+    .footer-list {
+        display: block;
+    }
+
+    .creator-part {
+        flex-direction: column;
+    }
+
+    .copyright-text {
+        opacity: 1;
     }
 }
