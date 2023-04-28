@@ -19,7 +19,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: minmax(6rem, 1fr) repeat(8, minmax(min-content, 16rem)) minmax(6rem, 1fr);
-    grid-template-rows: repeat(3, min-content);
+    grid-template-rows: repeat(3, min-content) 70vh;
     grid-row-gap: 1.6rem;
     margin-top: 1.6rem;
 }
@@ -218,3 +218,71 @@ body {
     color: #458a9f;
 }
 /* end of navbar */
+
+/* banner */
+
+.banner {
+    grid-column: 2 / 10;
+    grid-row: 4 / 5;
+    background-color: #ccc;
+    position: relative;
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.banner-heading {
+    font-size: 10rem;
+    color: #12376e;
+    margin-bottom: 6rem;
+}
+
+.banner-btn {
+    width: 16rem;
+    height: 5rem;
+    background: linear-gradient(to top, #00154c, #12376e, #23487f);
+    color: #fff;
+    border: .1rem solid #fff;
+    border-radius: .3rem;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-btn-text-one {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    transition: top .2s;
+}
+
+.banner-btn-text-two {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    transition: top .2s;
+
+}
+
+.banner-btn:hover .banner-btn-text-one {
+    top: -100%;
+}
+
+.banner-btn:hover .banner-btn-text-two {
+    top: 50%;
+}
+
+.slideshow {
+    display: none;
+}
+/* end of banner */
