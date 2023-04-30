@@ -765,9 +765,72 @@ body {
     font-size: 2rem;
     color: #00154c;
     font-weight: bolder;
-    position: absolute; 
+    position: absolute;
     bottom: 3.3rem;
     right: 3.5rem;
     cursor: pointer;
 }
+
+.login-form {
+    display: none;
+}
+
+.show-signup-form {
+    color: #888;
+    background-color: #34598f;
+    pointer-events: none;
+}
+
+#show-form:checked~.show-btns-wrapper .show-login-form {
+    color: #888;
+    background-color: #34598f;
+    pointer-events: none;
+}
+
+#show-form:checked~.show-btns-wrapper .show-signup-form {
+    color: #fff;
+    background-color: #12376e;
+    pointer-events: initial;
+}
+
+#show-form:checked~.signup-form {
+    display: none;
+}
+
+#show-form:checked~.login-form {
+    display: block;
+}
+
+#show-hide-forms:checked~.forms-wrapper {
+    display: block;
+    animation: anim .5s;
+}
+
+#show-hide-forms:checked~.container {
+    pointer-events: none;
+    opacity: .6;
+}
+
+.first-nav-link label {
+    cursor: pointer;
+}
+
+@keyframes anim {
+    0% {
+        left: 40%;
+    }
+
+    50% {
+        left: 60%;
+    }
+
+    75% {
+        left: 45%;
+    }
+
+    100% {
+        left: 50%;
+    }
+}
+
 /* end of modal box */
