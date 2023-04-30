@@ -537,6 +537,7 @@ body {
 .bestselling-furniture-btn:hover {
     background-color: #23487f;
 }
+
 /* end of bestselling furniture */
 
 /* gallery */
@@ -611,7 +612,7 @@ body {
 
 .gallery-img-10 {
     grid-column: 3 / 5;
-    grid-row:4 / 5;
+    grid-row: 4 / 5;
 }
 
 .gallery-img-11 {
@@ -623,4 +624,63 @@ body {
     grid-column: 7 / 9;
     grid-row: 3 / 5
 }
+
 /* end of gallery */
+
+/* contact */
+.contact {
+    grid-column: 1 / -1;
+    grid-row: 8 / 9;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3rem;
+    background-color: #12376e;
+    padding: 2rem 0;
+}
+
+.contact-heading {
+    justify-self: end;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.contact-form {
+    display: flex;
+}
+
+.contact-form input {
+    outline: none;
+    padding: .4rem 1rem;
+    border: .1rem solid #fff;
+}
+
+.contact-input {
+    border-radius: 5rem 0 0 5rem;
+    border-right: none;
+}
+
+.contact-btn {
+    background-color: #34598f;
+    color: #fff;
+    border-radius: 0 5rem 5rem 0;
+    border-left: none;
+    transition: background-color .2s;
+}
+
+.contact-btn:hover {
+    background-color: #12376e;
+}
+
+/* end of contact */
+
+/* footer */
+.footer {
+    grid-column: 2 / 10;
+    grid-row: 9 / 10;
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 2rem 0 3rem 0;
+    color: #34598f;
+}
+
+/* end of footer */
