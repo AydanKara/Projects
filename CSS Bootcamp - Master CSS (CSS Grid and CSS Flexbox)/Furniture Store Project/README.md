@@ -1,4 +1,4 @@
-https://aydankara.github.io/Udemi-Courses-Projects/CSS%20Bootcamp%20-%20Master%20CSS%20(CSS%20Grid%20and%20CSS%20Flexbox)/Furniture%20Store%20Project/
+https://aydankara.github.io/Projects/CSS%20Bootcamp%20-%20Master%20CSS%20(CSS%20Grid%20and%20CSS%20Flexbox)/Furniture%20Store%20Project/
 
 --------------------------------------------------------------------
 
