@@ -58,6 +58,7 @@ const Calculator = () => {
             type="number"
             id="result"
             value={result}
+            readOnly
           />
         </div>
       </div>
