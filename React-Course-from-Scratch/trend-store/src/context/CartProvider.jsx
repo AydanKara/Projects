@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { createContext } from "react";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const cartContext = {
