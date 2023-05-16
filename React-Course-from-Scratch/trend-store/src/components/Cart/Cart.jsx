@@ -1,6 +1,7 @@
 import CartItem from "./CartItem";
 import products from "../../productData";
 import "./Cart.css";
+import Offcanvas from "../UI/Offcanvas";
 
 
 const Cart = (props) => {
@@ -12,7 +13,7 @@ const Cart = (props) => {
     </ul>
   );
   return (
-    <div className="offcanvas">
+    <Offcanvas onClose={props.onClose}>
       <div className="content">
         <div className="cart-head">
           <h2>My Cart</h2>
@@ -28,7 +29,7 @@ const Cart = (props) => {
           <button className="cart-clear">Clear Cart</button>
         </div>
       </div>
-    </div>
+    </Offcanvas>
   );
 };
 
