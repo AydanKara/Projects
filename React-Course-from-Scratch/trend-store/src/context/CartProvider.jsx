@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable react/prop-types */
 import { createContext, useReducer } from "react";
 
@@ -10,8 +11,21 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-        let updatedItems = [...state.items];
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.item.id
+      );
+      let updatedItems = [...state.items];
+
+      if (existingCartItemIndex !== -1) {
+        updatedItems[existingCartItemIndex] = {
+          ...state.items[existingCartItemIndex],
+          amount:
+            state.items[existingCartItemIndex].amount + action.item.amount,
+        };
+      } else {
         updatedItems = [...state.items, action.item];
+      }
+    
       return {
         items: updatedItems,
         totalAmount: state.totalAmount + action.item.price * action.item.amount,

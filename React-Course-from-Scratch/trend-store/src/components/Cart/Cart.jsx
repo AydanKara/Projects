@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import CartItem from "./CartItem";
 import products from "../../productData";
 import "./Cart.css";
