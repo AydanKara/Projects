@@ -38,7 +38,7 @@ const cartReducer = (state, action) => {
         totalAmount: state.totalAmount - itemToRemove.price * itemToRemove.amount,
       };
     case "CLEAR":
-      return state;
+      return defaultCartState;
     default:
       return state;
   }

@@ -24,7 +24,7 @@ const CartItem = (props) => {
           className="cart-item-remove"
           onClick={(e) => {
             e.preventDefault();
-            removeItem(props.product.id)
+            removeItem(props.product.id);
           }}
         >
           x

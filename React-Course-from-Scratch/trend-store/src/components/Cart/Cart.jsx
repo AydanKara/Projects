@@ -6,7 +6,7 @@ import Offcanvas from "../UI/Offcanvas";
 import "./Cart.css";
 
 const Cart = (props) => {
-  const { items, totalAmount } = useContext(CartContext);
+  const { items, totalAmount, clearItem } = useContext(CartContext);
   const hasItems = items.length > 0;
   const cartItems = (
     <ul className="cart-items">
@@ -32,7 +32,9 @@ const Cart = (props) => {
         {hasItems && (
           <div className="actions">
             <button className="cart-order">Order Now</button>
-            <button className="cart-clear">Clear Cart</button>
+            <button className="cart-clear" onClick={clearItem}>
+              Clear Cart
+            </button>
           </div>
         )}
       </div>
