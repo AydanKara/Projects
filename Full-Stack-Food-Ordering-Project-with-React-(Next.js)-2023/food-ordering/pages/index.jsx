@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Home from "./home";
+import Header from "../components/layouts/Header";
 
 export default function Index() {
   return (
@@ -17,6 +18,7 @@ export default function Index() {
         />
         
       </Head>
+      <Header />
       <Home />
     </>
   );
