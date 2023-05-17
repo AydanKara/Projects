@@ -15,10 +15,7 @@ export default function Index() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
+        
       </Head>
       <Home />
     </>
