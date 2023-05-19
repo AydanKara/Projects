@@ -1,7 +1,10 @@
+import Carousel from "@/components/Carousel"
 
 const Index = () => {
   return (
-    <div></div>
+    <div className="relative">
+      <Carousel />
+    </div>
   )
 }
 
