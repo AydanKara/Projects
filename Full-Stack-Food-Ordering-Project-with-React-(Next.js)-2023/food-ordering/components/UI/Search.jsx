@@ -9,7 +9,7 @@ const Search = ({ setIsSearchModal }) => {
     <div className="fixed grid place-content-center w-screen h-screen top-0 left-0 z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60">
       <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
         <div className="w-full h-full grid place-content-center">
-          <div className="p-5 relative z-50 w-[600px] h-[600px] bg-white border-2">
+          <div className="p-10 rounded-3xl relative z-50 md:w-[600px] w-[370px] bg-white border-2">
             <Title addClass="text-[40px] text-center">Search</Title>
             <input
               type="text"
