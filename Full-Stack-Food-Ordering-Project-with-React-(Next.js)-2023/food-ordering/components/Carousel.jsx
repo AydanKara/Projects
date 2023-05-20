@@ -13,18 +13,8 @@ const Carousel = () => {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 4000,
-    appenDots: (dots) => (
-      <div
-        style={{
-          color: "yellow",
-          padding: "10px",
-        }}
-      >
-        <ul style={{ marginTop: "10px" }}>{dots}</ul>
-      </div>
-    ),
     customPaging: (i) => (
-      <div className="w-3 h-3 border bg-white rounded-full mt-10"></div>
+      <div className="w-4 h-4 border bg-white rounded-full mt-10"></div>
     ),
   };
   return (
