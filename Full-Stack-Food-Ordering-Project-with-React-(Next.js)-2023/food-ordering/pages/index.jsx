@@ -17,13 +17,9 @@ export default function Index() {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        
       </Head>
       <Header />
       <Home />
-      <div className="p-20 container mx-auto">
-        <Input />
-      </div>
     </>
   );
 }
