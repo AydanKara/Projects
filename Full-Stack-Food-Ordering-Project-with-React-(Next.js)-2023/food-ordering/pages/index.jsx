@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Home from "./home";
 import Header from "../components/layouts/Header";
+import Input from "@/components/form/input";
 
 export default function Index() {
   return (
@@ -20,6 +21,9 @@ export default function Index() {
       </Head>
       <Header />
       <Home />
+      <div className="p-20 container mx-auto">
+        <Input />
+      </div>
     </>
   );
 }
