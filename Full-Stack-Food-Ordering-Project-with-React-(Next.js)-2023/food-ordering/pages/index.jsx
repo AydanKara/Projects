@@ -2,6 +2,7 @@ import Head from "next/head";
 import Home from "./home";
 import Header from "../components/layouts/Header";
 import Input from "@/components/form/input";
+import Footer from "@/components/layouts/Footer";
 
 export default function Index() {
   return (
@@ -20,6 +21,7 @@ export default function Index() {
       </Head>
       <Header />
       <Home />
+      <Footer />
     </>
   );
 }
