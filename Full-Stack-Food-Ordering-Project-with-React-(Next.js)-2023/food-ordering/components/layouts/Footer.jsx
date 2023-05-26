@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../ui/Title";
+import Title from "../UI/Title";
 
 const Footer = () => {
   return (
