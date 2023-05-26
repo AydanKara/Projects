@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "../UI/Title";
 
+
 const Footer = () => {
   return (
     <div className="bg-secondary text-white">
