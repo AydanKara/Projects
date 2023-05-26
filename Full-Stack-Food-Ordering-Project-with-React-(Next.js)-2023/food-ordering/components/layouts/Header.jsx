@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Logo from "../UI/Logo";
 import Search from "../UI/Search";
+import Link from 'next/link';
+
 import {
   FaUserAlt,
   FaShoppingCart,
@@ -27,16 +29,16 @@ const Header = () => {
         >
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
-              <a href="">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
-              <a href="">Menu</a>
+              <Link href="/menu">Menu</Link>
             </li>
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
-              <a href="">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
-              <a href="">Book Table</a>
+              <Link href="/reservation">Book Table</Link>
             </li>
           </ul>
         </nav>

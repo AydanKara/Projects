@@ -1,7 +1,8 @@
+import Link from "next/link"
 
 const Logo = () => {
   return (
-    <div className="text-[2rem] font-dancing font-bold">Feane</div>
+    <Link href="/" className="text-[2rem] font-dancing font-bold">Feane</Link>
   )
 }
 
