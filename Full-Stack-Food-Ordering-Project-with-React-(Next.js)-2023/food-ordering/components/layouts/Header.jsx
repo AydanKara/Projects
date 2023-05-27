@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Logo from "../UI/Logo";
 import Search from "../UI/Search";
-import Link from 'next/link';
+import Link from "next/link";
 
 import {
   FaUserAlt,
@@ -19,7 +19,11 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <div className={`relative h-[5.5rem] z-50 ${router.asPath === "/" ? "bg-transparent" : "bg-secondary"}`}>
+    <div
+      className={`relative h-[5.5rem] z-50 ${
+        router.asPath === "/" ? "bg-transparent" : "bg-secondary"
+      }`}
+    >
       <div className="container mx-auto text-white flex justify-between items-center h-full">
         <Logo />
         <nav
@@ -44,11 +48,15 @@ const Header = () => {
         </nav>
         <div className="flex gap-x-4 items-center">
           <Link href="/auth/login">
-            <FaUserAlt className="hover:text-primary transition-all" />
+            <span>
+              <FaUserAlt className="hover:text-primary transition-all" />
+            </span>
           </Link>
-          <a href="#">
-            <FaShoppingCart className="hover:text-primary transition-all" />
-          </a>
+          <Link href="/cart">
+            <span>
+              <FaShoppingCart className="hover:text-primary transition-all" />
+            </span>
+          </Link>
           <button onClick={() => setIsSearchModal(true)}>
             <FaSearch className="hover:text-primary transition-all" />
           </button>
