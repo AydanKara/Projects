@@ -96,7 +96,7 @@ const Account = () => {
         ))}
       </div>
       <div>
-        <button className="btn-primary">Update</button>
+        <button className="btn-primary" type="submit">Update</button>
       </div>
     </form>
   );
