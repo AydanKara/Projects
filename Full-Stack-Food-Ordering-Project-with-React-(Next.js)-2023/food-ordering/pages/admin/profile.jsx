@@ -12,13 +12,13 @@ const Profile = () => {
       <div className="lg:w-80 w-100 flex-shrink-0">
         <div className="relative flex flex-col items-center px-10 py-5 border border-b-0">
           <Image
-            src="/images/client1.jpg"
+            src="/images/admin.png"
             alt="client"
             width={100}
             height={100}
             className="rounded-full"
           />
-          <b className="text-2xl mt-1">Sevi Kara</b>
+          <b className="text-2xl mt-1">Admin</b>
         </div>
         <ul className="text-center font-semibold">
           <li
@@ -27,8 +27,8 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(0)}
           >
-            <i className="fa fa-home"></i>
-            <button className="ml-1">Account</button>
+            <i className="fa fa-cutlery"></i>
+            <button className="ml-1">Products</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -36,8 +36,8 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(1)}
           >
-            <i className="fa fa-key"></i>
-            <button className="ml-1">Password</button>
+            <i className="fa fa-shopping-cart"></i>
+            <button className="ml-1">Orders</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
@@ -45,14 +45,23 @@ const Profile = () => {
             }`}
             onClick={() => setTabs(2)}
           >
-            <i className="fa fa-shopping-cart"></i>
-            <button className="ml-1">Orders</button>
+            <i className="fa fa-key"></i>
+            <button className="ml-1">Categories</button>
           </li>
           <li
             className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 3 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(3)}
+          >
+            <i className="fa fa-shopping-cart"></i>
+            <button className="ml-1">Footer</button>
+          </li>
+          <li
+            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+              tabs === 4 && "bg-primary text-white"
+            }`}
+            onClick={() => setTabs(4)}
           >
             <i className="fa fa-sign-out" aria-hidden="true"></i>
             <button className="ml-1">Exit</button>
