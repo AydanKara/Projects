@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Input from "../form/Input";
 import Title from "../UI/Title";
+import Input from "../form/input";
 
 const Category = () => {
   const [inputText, setInputText] = useState("");
