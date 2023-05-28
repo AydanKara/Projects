@@ -1,6 +1,7 @@
+import Order from "@/components/admin/Order";
 import Products from "@/components/admin/Products";
 import Account from "@/components/profile/Account";
-import Order from "@/components/profile/Order";
+
 import Password from "@/components/profile/Password";
 import Image from "next/legacy/image";
 import { useState } from "react";
@@ -70,8 +71,8 @@ const Profile = () => {
         </ul>
       </div>
       {tabs === 0 && <Products />}
-      {tabs === 1 && <Password />}
-      {tabs === 2 && <Order />}
+      {tabs === 1 && <Order />}
+      
     </div>
   );
 };
