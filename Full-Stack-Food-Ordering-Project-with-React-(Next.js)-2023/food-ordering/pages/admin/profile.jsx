@@ -1,6 +1,7 @@
 import Category from "@/components/admin/Category";
 import Order from "@/components/admin/Order";
 import Products from "@/components/admin/Products";
+import Footer from "@/components/admin/Footer";
 import Image from "next/legacy/image";
 import { useState } from "react";
 
@@ -71,6 +72,7 @@ const Profile = () => {
       {tabs === 0 && <Products />}
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
+      {tabs === 3 && <Footer />}
       
     </div>
   );
