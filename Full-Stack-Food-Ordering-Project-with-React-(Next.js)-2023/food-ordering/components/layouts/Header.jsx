@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Logo from "../UI/Logo";
 import Search from "../UI/Search";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 import {
   FaUserAlt,
@@ -15,6 +16,7 @@ import { AiFillCloseCircle } from "react-icons/ai";
 const Header = () => {
   const [isSearchModal, setIsSearchModal] = useState(false);
   const [isMenuModal, setIsMenuModal] = useState(false);
+  const cart = useSelector((state) => state.cart);
 
   const router = useRouter();
 
@@ -53,8 +55,9 @@ const Header = () => {
             </span>
           </Link>
           <Link href="/cart">
-            <span>
+            <span className="relative">
               <FaShoppingCart className="hover:text-primary transition-all" />
+              <span className="w-4 h-4 bg-primary rounded-full text-black font-bold grid place-content-center text-xs absolute -top-2 -right-3">{cart.products.length === 0 ? "0" : cart.products.length}</span>
             </span>
           </Link>
           <button onClick={() => setIsSearchModal(true)}>
