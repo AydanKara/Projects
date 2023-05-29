@@ -3,8 +3,10 @@ import Input from "@/components/form/input";
 import { useFormik } from "formik";
 import { loginSchema } from "@/schema/login";
 import Link from "next/link";
+import { useSession, signIn } from "next-auth/react";
 
 const Login = () => {
+  const { data: session } = useSession();
   const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     actions.resetForm();
@@ -58,8 +60,14 @@ const Login = () => {
             />
           ))}
           <div className="flex flex-col gap-3 mt-4">
-            <button className="btn-primary">LOGIN</button>
-            <button className="btn-primary !bg-[#0e1116] hover:!bg-[#66707b] flex justify-center items-center gap-2">
+            <button className="btn-primary" type="submit">
+              LOGIN
+            </button>
+            <button
+              className="btn-primary !bg-[#0e1116] hover:!bg-[#66707b] flex justify-center items-center gap-2"
+              type="button"
+              onClick={() => signIn("github")}
+            >
               <i className="fa fa-github text-xl" aria-hidden="true"></i>GitHub
             </button>
             <Link href="/auth/register">
