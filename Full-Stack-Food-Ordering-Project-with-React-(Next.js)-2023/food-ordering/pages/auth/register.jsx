@@ -3,11 +3,18 @@ import Input from "@/components/form/input";
 import { useFormik } from "formik";
 import { registerSchema } from "@/schema/register";
 import Link from "next/link";
+import axios from "axios";
 
 const Register = () => {
   const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    actions.resetForm();
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
+        values
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
@@ -24,14 +31,14 @@ const Register = () => {
 
   const inputs = [
     {
-        id: 1,
-        name: "fullName",
-        type: "text",
-        placeholder: "Your Full Name",
-        value: values.fullName,
-        errorMessage: errors.fullName,
-        touched: touched.fullName,
-      },
+      id: 1,
+      name: "fullName",
+      type: "text",
+      placeholder: "Your Full Name",
+      value: values.fullName,
+      errorMessage: errors.fullName,
+      touched: touched.fullName,
+    },
     {
       id: 2,
       name: "email",
@@ -51,14 +58,14 @@ const Register = () => {
       touched: touched.password,
     },
     {
-        id: 3,
-        name: "passwordConfirm",
-        type: "password",
-        placeholder: "Confirm Password",
-        value: values.passwordConfirm,
-        errorMessage: errors.passwordConfirm,
-        touched: touched.passwordConfirm,
-      },
+      id: 4,
+      name: "passwordConfirm",
+      type: "password",
+      placeholder: "Confirm Password",
+      value: values.passwordConfirm,
+      errorMessage: errors.passwordConfirm,
+      touched: touched.passwordConfirm,
+    },
   ];
 
   return (
@@ -78,7 +85,9 @@ const Register = () => {
             />
           ))}
           <div className="flex flex-col gap-3 mt-4">
-            <button className="btn-primary">REGISTER</button>
+            <button className="btn-primary" type="submit">
+              REGISTER
+            </button>
             <Link href="/auth/login">
               <span className="text-xs underline text-secondary">
                 Do you have a account?
