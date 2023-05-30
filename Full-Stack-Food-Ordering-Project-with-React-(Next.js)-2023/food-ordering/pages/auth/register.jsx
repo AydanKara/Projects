@@ -20,6 +20,7 @@ const Register = () => {
       toast.error(err.response.data.message);
       console.log(err);
     }
+    actions.resetForm();
   };
 
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
