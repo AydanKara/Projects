@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { registerSchema } from "@/schema/register";
 import Link from "next/link";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const onSubmit = async (values, actions) => {
@@ -12,7 +13,11 @@ const Register = () => {
         `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
         values
       );
+      if (res.status === 200) {
+        toast.success("User registered successfully");
+      }
     } catch (err) {
+      toast.error(err.response.data.message);
       console.log(err);
     }
   };
