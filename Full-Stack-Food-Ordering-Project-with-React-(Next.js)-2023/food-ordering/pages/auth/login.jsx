@@ -3,30 +3,28 @@ import Input from "@/components/form/input";
 import { useFormik } from "formik";
 import { loginSchema } from "@/schema/login";
 import Link from "next/link";
-import { useSession, signIn } from "next-auth/react";
+import { useSession, signIn, getSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { data: session } = useSession();
+ /*  const { data: session } = useSession(); */
   const { push } = useRouter();
 
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
     let options = { redirect: false, email, password };
-    const res = await signIn("credentials", options);
-    actions.resetForm();
-    toast.success("Login successfully!");
+    try {
+      const res = await signIn("credentials", options);
+      actions.resetForm();
+      push("/profile");
+      toast.success("Login successfully!");
+    } catch (error) {
+      console.log(err);
+    }
   };
 
-  useEffect(() => {
-    if (session) {
-      push("/profile");
-    }
-  }, [session, push]);
-
-  console.log(session);
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
       initialValues: {
@@ -96,5 +94,22 @@ const Login = () => {
     </div>
   );
 };
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/profile",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
 
 export default Login;
