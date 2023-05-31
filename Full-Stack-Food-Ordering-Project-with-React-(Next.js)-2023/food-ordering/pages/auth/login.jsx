@@ -4,15 +4,27 @@ import { useFormik } from "formik";
 import { loginSchema } from "@/schema/login";
 import Link from "next/link";
 import { useSession, signIn } from "next-auth/react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { data: session } = useSession();
+  const { push } = useRouter();
+
   const onSubmit = async (values, actions) => {
     const { email, password } = values;
     let options = { redirect: false, email, password };
     const res = await signIn("credentials", options);
-    /*   actions.resetForm(); */
+    actions.resetForm();
+    toast.success("Login successfully!");
   };
+
+  useEffect(() => {
+    if (session) {
+      push("/profile");
+    }
+  }, [session, push]);
 
   console.log(session);
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
