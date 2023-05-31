@@ -4,7 +4,7 @@ import Input from "@/components/form/input";
 import { useFormik } from "formik";
 import { adminSchema } from "@/schema/admin";
 import Link from "next/link";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 const Login = () => {
@@ -87,8 +87,20 @@ const Login = () => {
   );
 };
 
-/* export const getServerSideProps = (ctx) => {
+export const getServerSideProps = (ctx) => {
   const myCookie = ctx.req?.cookies || "";
-}; */
+  if (myCookie.token === process.env.ADMIN_TOKEN) {
+    return {
+      redirect: {
+        destination: "/admin/profile",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
 
 export default Login;
