@@ -6,6 +6,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
@@ -77,7 +78,7 @@ const Profile = () => {
   );
 };
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, params }) {
   const session = await getSession({ req });
 
   if (!session) {
@@ -88,6 +89,11 @@ export async function getServerSideProps({ req }) {
       },
     };
   }
+
+  const user = await axios.get(
+    `${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`
+  );
+
 
   return {
     props: {},
