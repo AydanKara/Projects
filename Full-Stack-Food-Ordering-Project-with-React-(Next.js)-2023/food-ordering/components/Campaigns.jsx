@@ -11,6 +11,7 @@ const CampaignsItem = () => {
           alt="image"
           layout="fill"
           className="hover:scale-110 transition-all"
+          priority
         />
       </div>
       <div className="text-white">
