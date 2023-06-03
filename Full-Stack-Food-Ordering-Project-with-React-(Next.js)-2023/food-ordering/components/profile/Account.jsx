@@ -3,22 +3,35 @@ import Title from "../UI/Title";
 import Input from "../form/input";
 import { useFormik } from "formik";
 import { accountSettingsSchema } from "@/schema/profile";
+import axios from "axios";
 
-
-const Account = () => {
-  const onSubmit = async (values, actions) => {
+const Account = ({ user }) => {
+  /* const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     actions.resetForm();
+  }; */
+  const onSubmit = async (values, actions) => {
+    try {
+      const res = await axios.put(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`,
+        values
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    actions.resetForm();
   };
+
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
+      enableReinitialize: true,
       initialValues: {
-        fullName: "",
-        email: "",
-        phoneNumber: "",
-        address: "",
-        job: "",
-        bio: "",
+        fullName: user?.fullName,
+        email: user?.email,
+        phoneNumber: user?.phoneNumber,
+        address: user?.address,
+        job: user?.job,
+        bio: user?.bio,
       },
       onSubmit,
       validationSchema: accountSettingsSchema,
@@ -96,7 +109,9 @@ const Account = () => {
         ))}
       </div>
       <div>
-        <button className="btn-primary" type="submit">Update</button>
+        <button className="btn-primary" type="submit">
+          Update
+        </button>
       </div>
     </form>
   );

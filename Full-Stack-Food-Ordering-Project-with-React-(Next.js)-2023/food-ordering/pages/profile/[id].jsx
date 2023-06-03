@@ -8,7 +8,8 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const Profile = () => {
+const Profile = ({ user }) => {
+  const { data: session } = useSession();
   const [tabs, setTabs] = useState(0);
   const { push } = useRouter();
   /*   const { data: session } = useSession(); */
@@ -26,13 +27,13 @@ const Profile = () => {
       <div className="lg:w-80 w-100 flex-shrink-0">
         <div className="relative flex flex-col items-center px-10 py-5 border border-b-0">
           <Image
-            src="/images/client1.jpg"
+            src={user.image ? user.image : "/images/client1.jpg"}
             alt="client"
             width={100}
             height={100}
             className="rounded-full"
           />
-          <b className="text-2xl mt-1">Sevi Kara</b>
+          <b className="text-2xl mt-1">{user.fullName}</b>
         </div>
         <ul className="text-center font-semibold">
           <li
@@ -71,15 +72,15 @@ const Profile = () => {
           </li>
         </ul>
       </div>
-      {tabs === 0 && <Account />}
-      {tabs === 1 && <Password />}
+      {tabs === 0 && <Account user={user} />}
+      {tabs === 1 && <Password user={user} />}
       {tabs === 2 && <Order />}
     </div>
   );
 };
 
 export async function getServerSideProps({ req, params }) {
-  const session = await getSession({ req });
+/*   const session = await getSession({ req });
 
   if (!session) {
     return {
@@ -88,7 +89,7 @@ export async function getServerSideProps({ req, params }) {
         permanent: false,
       },
     };
-  }
+  } */
 
   const user = await axios.get(
     `${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`
@@ -96,7 +97,9 @@ export async function getServerSideProps({ req, params }) {
 
 
   return {
-    props: {},
+    props: {
+      user: user ? user.data : null,
+    }
   };
 }
 
