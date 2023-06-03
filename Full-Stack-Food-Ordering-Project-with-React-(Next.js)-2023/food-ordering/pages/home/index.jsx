@@ -7,7 +7,7 @@ import Reservation from "@/components/Reservation";
 import Customers from "@/components/customers/Customers";
 
 const Index = ({ categoryList }) => {
-  console.log(categoryList);
+  /* console.log(categoryList); */
   return (
     <React.Fragment>
       <Carousel />

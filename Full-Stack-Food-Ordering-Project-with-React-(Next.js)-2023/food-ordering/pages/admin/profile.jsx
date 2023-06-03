@@ -7,9 +7,11 @@ import Image from "next/legacy/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import AddProduct from "@/components/admin/AddProduct";
 
 const Profile = () => {
   const [tabs, setTabs] = useState(0);
+  const [isProductModal, setIsProductModal] = useState(false);
 
   const { push } = useRouter();
 
@@ -92,6 +94,13 @@ const Profile = () => {
       {tabs === 1 && <Order />}
       {tabs === 2 && <Category />}
       {tabs === 3 && <Footer />}
+      {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
+      <button
+        className="btn-primary w-12 h-12 text-[34px] !p-0 fixed bottom-20 right-20 grid place-content-center"
+        onClick={() => setIsProductModal(true)}
+      >
+        +
+      </button>
     </div>
   );
 };
