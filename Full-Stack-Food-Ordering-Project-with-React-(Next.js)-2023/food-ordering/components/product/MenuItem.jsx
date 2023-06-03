@@ -8,7 +8,7 @@ const MenuItem = () => {
       <div className="w-full bg-[#f1f2f3] flex justify-center p-[25px] rounded-bl-[46px] rounded-t-[12px]">
         <Link href="/product">
           <div className="relative w-36 h-36 hover:scale-110 transition-all">
-            <Image src="/images/f1.png" alt="f1" layout="fill" />
+            <Image src="/images/f1.png" alt="f1" layout="fill" priority/>
           </div>
         </Link>
       </div>
