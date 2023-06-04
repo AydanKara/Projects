@@ -69,10 +69,10 @@ const Cart = ({ userList }) => {
               </tr>
             </thead>
             <tbody>
-              {cart.products.map((product) => (
+              {cart.products.map((product, index) => (
                 <tr
                   className="transition-all bg-secondary hover:bg-primary border-gray-700"
-                  key={product._id}
+                  key={index}
                 >
                   <td className="py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center">
                     <Image
