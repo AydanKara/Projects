@@ -1,29 +1,23 @@
 import Footer from "@/models/Footer";
 import dbConnect from "@/util/dbConnect";
 
-
 const handler = async (req, res) => {
   await dbConnect();
-  const {
-    method,
-    query: { id },
-  } = req;
+  const { method } = req;
 
   if (method === "GET") {
     try {
-      const footer = await Footer.findById(id);
+      const footer = await Footer.find();
       res.status(200).json(footer);
     } catch (err) {
       console.log(err);
     }
   }
 
-  if (method === "PUT") {
+  if (method === "POST") {
     try {
-      const footer = await Footer.findByIdAndUpdate(id, req.body, {
-        new: true,
-      });
-      res.status(200).json(footer);
+      const newFooter = await Footer.create(req.body);
+      res.status(200).json(newFooter);
     } catch (err) {
       console.log(err);
     }
