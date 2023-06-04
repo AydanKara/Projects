@@ -2,6 +2,13 @@ import Image from "next/legacy/image";
 import axios from "axios";
 
 const Order = ({ order }) => {
+  const status = order?.status;
+
+  const statusClass = (index) => {
+    if (index - status < 1) return "";
+    if (index - status === 1) return "animate-pulse";
+    if (index - status > 1) return "";
+  };
   return (
     <div className="min-h-[calc(100vh_-_433px)] flex justify-between items-center flex-col p-10">
       <div className="flex items-center flex-1 overflow-x-auto w-full">
@@ -41,7 +48,7 @@ const Order = ({ order }) => {
         </table>
       </div>
       <div className="flex justify-between w-full p-10 bg-primary mt-6">
-        <div className="relative flex flex-col">
+        <div className={`relative flex flex-col ${statusClass(0)}`}>
           <Image
             src="/images/paid.png"
             alt=""
@@ -51,7 +58,7 @@ const Order = ({ order }) => {
           />
           <span>Payment</span>
         </div>
-        <div className="relative flex flex-col animate-pulse">
+        <div className={`relative flex flex-col ${statusClass(1)}`}>
           <Image
             src="/images/bake.png"
             alt=""
@@ -61,7 +68,7 @@ const Order = ({ order }) => {
           />
           <span>Preparing</span>
         </div>
-        <div className="relative flex flex-col">
+        <div className={`relative flex flex-col ${statusClass(2)}`}>
           <Image
             src="/images/bike.png"
             alt=""
@@ -71,7 +78,7 @@ const Order = ({ order }) => {
           />
           <span>On the way</span>
         </div>
-        <div className="relative flex flex-col">
+        <div className={`relative flex flex-col ${statusClass(3)}`}>
           <Image
             src="/images/delivered.png"
             alt=""
