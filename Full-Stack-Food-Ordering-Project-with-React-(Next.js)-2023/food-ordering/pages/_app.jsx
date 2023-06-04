@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "../redux/store";
 import { SessionProvider } from "next-auth/react";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -23,8 +23,10 @@ export default function App({
     <SessionProvider session={session}>
       <Provider store={store}>
         <Layout>
-          <ToastContainer />
-          <Component {...pageProps} />
+          <div className="pt-[88px]">
+            <ToastContainer />
+            <Component {...pageProps} />
+          </div>
         </Layout>
       </Provider>
     </SessionProvider>

@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <div
-      className={`relative h-[5.5rem] z-50 ${
+      className={`fixed w-full h-[5.5rem] z-50 ${
         router.asPath === "/" ? "bg-transparent" : "bg-secondary"
       }`}
     >
@@ -34,16 +34,32 @@ const Header = () => {
           }`}
         >
           <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
-            <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/" && "text-primary"
+              }`}
+            >
               <Link href="/">Home</Link>
             </li>
-            <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/menu" && "text-primary"
+              }`}
+            >
               <Link href="/menu">Menu</Link>
             </li>
-            <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/about" && "text-primary"
+              }`}
+            >
               <Link href="/about">About</Link>
             </li>
-            <li className="px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer">
+            <li
+              className={`px-[5px] py-[10px] uppercase hover:text-primary cursor-pointer ${
+                router.asPath === "/reservation" && "text-primary"
+              }`}
+            >
               <Link href="/reservation">Book Table</Link>
             </li>
           </ul>
@@ -51,17 +67,31 @@ const Header = () => {
         <div className="flex gap-x-4 items-center">
           <Link href="/auth/login">
             <span>
-              <FaUserAlt className="hover:text-primary transition-all" />
+              <FaUserAlt
+                className={`hover:text-primary transition-all cursor-pointer ${
+                  (router.asPath.includes("profile") ||
+                    router.asPath.includes("auth")) &&
+                  "text-primary"
+                }`}
+                size={18}
+              />
             </span>
           </Link>
           <Link href="/cart">
             <span className="relative">
-              <FaShoppingCart className="hover:text-primary transition-all" />
-              <span className="w-4 h-4 bg-primary rounded-full text-black font-bold grid place-content-center text-xs absolute -top-2 -right-3">{cart.products.length === 0 ? "0" : cart.products.length}</span>
+              <FaShoppingCart
+                className={`hover:text-primary transition-all cursor-pointer ${
+                  router.asPath === "/cart" && "text-primary"
+                }`}
+                size={18}
+              />
+              <span className="w-4 h-4 bg-primary rounded-full text-black font-bold grid place-content-center text-xs absolute -top-2 -right-3">
+                {cart.products.length === 0 ? "0" : cart.products.length}
+              </span>
             </span>
           </Link>
           <button onClick={() => setIsSearchModal(true)}>
-            <FaSearch className="hover:text-primary transition-all" />
+            <FaSearch className="hover:text-primary transition-all" size={18} />
           </button>
           <a href="#" className="md:inline-block hidden">
             <button className="btn-primary">Order Online</button>
