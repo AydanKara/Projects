@@ -4,7 +4,7 @@ import Title from "./UI/Title";
 
 const About = () => {
   return (
-    <div className="bg-secondary py-14">
+    <div className="bg-secondary py-14 xs:px-0 px-4">
       <div className="container mx-auto flex items-center text-white gap-20 justify-center flex-wrap-reverse">
         <div className="flex justify-center">
           <div className="relative sm:w-[445px] sm:h-[600px] w-[300px] h-[450px] flex justify-center">

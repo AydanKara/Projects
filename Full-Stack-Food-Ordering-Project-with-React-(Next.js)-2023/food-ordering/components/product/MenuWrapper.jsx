@@ -16,7 +16,7 @@ const MenuWrapper = ({ categoryList, productList }) => {
     );
   }, [categoryList, productList, active]);
   return (
-    <div className="container mx-auto mb-16">
+    <div className="container mx-auto mb-16 xs:px-0 px-4">
       <div className="flex flex-col items-center w-full">
         <Title addClass="text-[40px]">Our Menu</Title>
         <div className="mt-10">

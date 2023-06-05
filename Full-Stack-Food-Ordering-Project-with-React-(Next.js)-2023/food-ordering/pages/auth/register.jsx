@@ -78,7 +78,7 @@ const Register = () => {
   ];
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto xs:px-0 px-4">
       <form
         className="flex flex-col items-center my-20 lg:w-1/2 sm:w-1/2 mx-auto"
         onSubmit={handleSubmit}

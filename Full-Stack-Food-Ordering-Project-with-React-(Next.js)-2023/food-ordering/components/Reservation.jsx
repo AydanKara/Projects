@@ -69,7 +69,7 @@ const Reservation = () => {
   ];
 
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-12 xs:px-0 px-4">
       <Title addClass="text-[40px] mb-10">Book A Table</Title>
       <div className="flex justify-between flex-wrap gap-10">
         <form className="lg:flex-1 w-full" onSubmit={handleSubmit}>

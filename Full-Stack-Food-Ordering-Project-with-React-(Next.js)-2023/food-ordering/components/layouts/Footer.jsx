@@ -19,7 +19,7 @@ const Footer = () => {
     getFooter();
   }, []);
   return (
-    <div className="bg-secondary text-white">
+    <div className="bg-secondary text-white xs:px-0 px-4">
       <div className="container mx-auto pt-16 pb-6">
         <div className="flex md:justify-between justify-center text-center flex-wrap md:gap-y-0 gap-y-6 ">
           <div className="md:flex-1">
@@ -48,7 +48,7 @@ const Footer = () => {
               {footer?.socialMedia?.map((item) => (
                 <a
                   href={item?.link}
-                  className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full"
+                  className="w-8 h-8 grid place-content-center bg-white text-secondary rounded-full hover:text-white hover:bg-primary transition-all"
                   key={item._id}
                   target="_blank"
                   rel="noreferrer"

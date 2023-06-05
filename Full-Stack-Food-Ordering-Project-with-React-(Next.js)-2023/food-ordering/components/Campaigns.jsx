@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const CampaignsItem = () => {
   return (
-    <div className="bg-secondary flex-1 rounded-md py-5 px-[15px] flex items-center lg:justify-start xl:text-left justify-center text-center  gap-x-4 flex-wrap">
+    <div className="bg-secondary flex-1 rounded-md py-5 px-[15px] flex items-center lg:justify-start xl:text-left justify-center text-center  gap-x-4 flex-wrap xs:mx-0 mx-4">
       <div className="relative w-[165px] h-[165px] border-[5px] border-primary rounded-full overflow-hidden lg:mb-0 mb-4">
         <Image
           src="/images/o1.jpg"

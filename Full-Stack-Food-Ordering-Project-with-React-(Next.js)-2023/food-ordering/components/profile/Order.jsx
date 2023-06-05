@@ -41,7 +41,7 @@ const Order = () => {
     <div className="lg:p-8 flex-1 lg:mt-0 my-5">
       <Title addClass="text-[40px]">Your Order</Title>
       <div className="overflow-x-auto w-full my-5">
-        <table className="w-full text-sm text-center text-gray-500 min-w-[1000px]">
+        <table className="w-full text-sm text-center text-gray-500 xl:min-w-[1000px] min-w-full">
           <thead className="text-xs text-gray-400 uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">

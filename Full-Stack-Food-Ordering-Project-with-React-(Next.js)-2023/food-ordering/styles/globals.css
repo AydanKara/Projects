@@ -23,10 +23,15 @@ body {
   @apply !flex justify-start items-center w-full;
 }
 
+.slick-dots li {
+  @apply !m-0 !mr-1;
+}
+
+
 .slick-dots .slick-active div {
-  @apply bg-primary;
+  @apply bg-primary scale-125;
 }
 
 .slick-dots div {
-  @apply !m-0 !mt-6;
+  @apply !m-0 !mt-8;
 }

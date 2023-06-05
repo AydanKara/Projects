@@ -46,7 +46,7 @@ const Profile = ({ user }) => {
             <button className="ml-1">Account</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+            className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 1 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(1)}
@@ -55,7 +55,7 @@ const Profile = ({ user }) => {
             <button className="ml-1">Password</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
+            className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all ${
               tabs === 2 && "bg-primary text-white"
             }`}
             onClick={() => setTabs(2)}
@@ -64,7 +64,7 @@ const Profile = ({ user }) => {
             <button className="ml-1">Orders</button>
           </li>
           <li
-            className={`border w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
+            className={`border border-t-0 w-full p-3 cursor-pointer hover:bg-primary hover:text-white transition-all`}
             onClick={handleSignOut}
           >
             <i className="fa fa-sign-out" aria-hidden="true"></i>
