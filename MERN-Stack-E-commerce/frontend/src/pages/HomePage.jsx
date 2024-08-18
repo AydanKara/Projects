@@ -1,6 +1,4 @@
-import Header from "../components/Layout/Header/Header";
 import Categories from "../components/Categories/Categories";
-import Footer from "../components/Layout/Footer/Footer";
 import Products from "../components/Products/Products";
 import Sliders from "../components/Slider/Sliders";
 import Campaigns from "../components/Campaigns/Campaigns";
@@ -11,7 +9,6 @@ import CampaignSingle from "../components/CampaignSingle/CampaignSingle";
 const HomePage = () => {
   return (
     <>
-      <Header />
       <Sliders />
       <Categories />
       <Products />
@@ -20,7 +17,6 @@ const HomePage = () => {
       <Blogs />
       <Brands />
       <CampaignSingle />
-      <Footer />
     </>
   );
 };
