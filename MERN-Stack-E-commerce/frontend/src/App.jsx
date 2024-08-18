@@ -1,6 +1,7 @@
 /* import HomePage from "./pages/HomePage"; */
 import "./App.css";
-import AccountPage from "./pages/AccountPage";
+import CartPage from "./pages/CartPage";
+/* import AccountPage from "./pages/AccountPage"; */
 /* import ContactPage from "./pages/ContactPage"; */
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       {/*  <HomePage /> */}
       {/* <ContactPage /> */}
-      <AccountPage />
+      {/* <AccountPage /> */}
+      <CartPage />
     </>
   );
 }
