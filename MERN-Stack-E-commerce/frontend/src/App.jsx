@@ -1,6 +1,6 @@
-/* import HomePage from "./pages/HomePage"; */
+import HomePage from "./pages/HomePage";
 import "./App.css";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
+/* import ProductDetailsPage from "./pages/ProductDetailsPage"; */
 /* import BlogDetailsPage from "./pages/BlogDetailsPage"; */
 /* import BlogPage from "./pages/BlogPage"; */
 /* import CartPage from "./pages/CartPage"; */
@@ -10,13 +10,13 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 function App() {
   return (
     <>
-      {/*  <HomePage /> */}
+      <HomePage />
       {/* <ContactPage /> */}
       {/* <AccountPage /> */}
       {/* <CartPage /> */}
       {/* <BlogPage /> */}
       {/* <BlogDetailsPage /> */}
-      <ProductDetailsPage />
+      {/* <ProductDetailsPage /> */}
     </>
   );
 }
