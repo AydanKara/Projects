@@ -19,7 +19,10 @@
     cursor: zoom-in;
 }
 
-/* .single-product .gallery-thumbs {} */
+.single-product .gallery-thumbs {
+   /*  display: flex;
+    column-gap: 10px; */
+}
 
 .single-product .gallery-thumbs li {
     cursor: pointer;
@@ -49,12 +52,13 @@
     transform: translateY(-50%);
     background-color: transparent;
     font-size: 25px;
+    z-index: 1;
 }
 
 .single-product .glide__arrow--left {
-    left: 0;
+    left: 10px;
 }
 
 .single-product .glide__arrow--right {
-    right: 0;
+    right: 10px;
 }
