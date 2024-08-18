@@ -1,7 +1,69 @@
 import ProductItem from "./ProductItem";
-import "./Products.css"
+import ProductData from "../../data.json";
+import PropTypes from "prop-types";
+import Slider from "react-slick";
+import "./Products.css";
+import { useState } from "react";
+
+function NextBtn({ onClick }) {
+  return (
+    <button
+      className="glide__arrow glide__arrow--right"
+      data-glide-dir=">"
+      onClick={onClick}
+    >
+      <i className="bi bi-chevron-right" />
+    </button>
+  );
+}
+
+NextBtn.propTypes = {
+  onClick: PropTypes.func,
+};
+
+function PrevBtn({ onClick }) {
+  return (
+    <button
+      className="glide__arrow glide__arrow--left"
+      data-glide-dir="<"
+      onClick={onClick}
+    >
+      <i className="bi bi-chevron-left" />
+    </button>
+  );
+}
+
+PrevBtn.propTypes = {
+  onClick: PropTypes.func,
+};
 
 const Products = () => {
+  const [products] = useState(ProductData);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: <NextBtn />,
+    prevArrow: <PrevBtn />,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
+  };
+
   return (
     <section className="products">
       <div className="container">
@@ -11,26 +73,11 @@ const Products = () => {
         </div>
         <div className="product-wrapper product-carousel">
           <div className="glide__track" data-glide-el="track">
-            <ul className="product-list glide__slides" id="product-list">
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-            </ul>
-          </div>
-          <div className="glide__arrows" data-glide-el="controls">
-            <button
-              className="glide__arrow glide__arrow--left"
-              data-glide-dir="<"
-            >
-              <i className="bi bi-chevron-left" />
-            </button>
-            <button
-              className="glide__arrow glide__arrow--right"
-              data-glide-dir=">"
-            >
-              <i className="bi bi-chevron-right" />
-            </button>
+            <Slider {...settings}>
+              {products.map((product) => (
+                <ProductItem product={product} key={product.id} />
+              ))}
+            </Slider>
           </div>
         </div>
       </div>
