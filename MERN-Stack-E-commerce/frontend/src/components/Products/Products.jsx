@@ -1,9 +1,9 @@
-import ProductItem from "./ProductItem";
-import ProductData from "../../data.json";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
+import ProductItem from "./ProductItem";
+import ProductData from "../../data.json";
 import "./Products.css";
-import { useState } from "react";
 
 function NextBtn({ onClick }) {
   return (
@@ -53,15 +53,15 @@ const Products = () => {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-        }
+        },
       },
       {
         breakpoint: 520,
         settings: {
           slidesToShow: 1,
-        }
+        },
       },
-    ]
+    ],
   };
 
   return (
