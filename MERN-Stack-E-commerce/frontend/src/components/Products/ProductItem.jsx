@@ -14,7 +14,6 @@ const ProductItem = ({ product }) => {
           <img src={product.img.thumbs[1]} alt="" className="img2" />
         </a>
       </div>
-      Data: {name}
       <div className="product-info">
         <a href="$" className="product-title">
           {product.name}
