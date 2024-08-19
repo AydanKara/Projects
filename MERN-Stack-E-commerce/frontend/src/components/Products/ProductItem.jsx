@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import "./ProductItem.css";
 
 const ProductItem = ({ product }) => {
-  const { addToCart } = useContext(CartContext);
+  const { cartItems, addToCart } = useContext(CartContext);
+
+  const filteredCart = cartItems.find((cartItem) => cartItem.id === product.id);
 
   return (
     <div className="product-item glide__slide">
@@ -45,7 +47,7 @@ const ProductItem = ({ product }) => {
         </div>
         <span className="product-discount">-{product.discount}%</span>
         <div className="product-links">
-          <button onClick={() => addToCart(product)}>
+          <button onClick={() => addToCart(product)} disabled={filteredCart}>
             <i className="bi bi-basket-fill" />
           </button>
           <button>
