@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
-import productData from "../../../data.json";
+import productsData from "../../../data.json";
 import "./ProductGallery.css";
 
 function NextBtn({ onClick }) {
@@ -47,25 +47,36 @@ const ProductGallery = () => {
     prevArrow: <PrevBtn />,
   };
 
-  const [activeImg, setActiveImg] = useState(productData[0].img.singleImage);
+  const [activeImg, setActiveImg] = useState({
+    img: productsData[0].img.singleImage,
+    imgIndex: 0,
+  });
 
   return (
     <div className="product-gallery">
       <div className="single-image-wrapper">
-        <img src={activeImg} alt="" id="single-image" />
+        <img src={`${activeImg.img}`} alt="" id="single-image" />
       </div>
       <div className="product-thumb glide">
         <div className="glide__track" data-glide-el="track">
           <ol className="gallery-thumbs glide__slides">
             <Slider {...settings}>
-              {productData[0].img.thumbs.map((itemImg, index) => (
-                <li key={index} onClick={() => setActiveImg(itemImg)}>
+              {productsData[0].img.thumbs.map((itemImg, index) => (
+                <li
+                  key={index}
+                  onClick={() =>
+                    setActiveImg({
+                      img: productsData[0].img.thumbs[index],
+                      imgIndex: index,
+                    })
+                  }
+                >
                   <img
-                    src={itemImg}
+                    src={`${itemImg}`}
                     alt=""
                     className={`img-fluid ${
-                      itemImg === activeImg ? "active" : ""
-                    }`}
+                      activeImg.imgIndex === index ? "active" : ""
+                    } `}
                   />
                 </li>
               ))}

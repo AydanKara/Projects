@@ -55,7 +55,6 @@ const Contact = () => {
                     id="author"
                     name="author"
                     type="text"
-                    value=""
                     size={30}
                     required=""
                     defaultValue={""}

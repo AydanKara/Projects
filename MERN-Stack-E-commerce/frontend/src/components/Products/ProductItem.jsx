@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartProvider";
 import PropTypes from "prop-types";
 import "./ProductItem.css";
+import { Link } from "react-router-dom";
 
 const ProductItem = ({ product }) => {
   const { cartItems, addToCart } = useContext(CartContext);
@@ -53,9 +54,9 @@ const ProductItem = ({ product }) => {
           <button>
             <i className="bi bi-heart-fill" />
           </button>
-          <a href="#">
+          <Link to={`product/${product.id}`}>
             <i className="bi bi-eye-fill" />
-          </a>
+          </Link>
           <a href="#">
             <i className="bi bi-share-fill" />
           </a>
