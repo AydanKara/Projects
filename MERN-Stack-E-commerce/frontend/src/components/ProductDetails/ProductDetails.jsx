@@ -1,4 +1,4 @@
-import BreadCrump from "./BreadCrump/BreadCrump";
+import BreadCrump from "../ProductDetails/BreadCrump/BreadCrump";
 import "./ProductDetails.css";
 import ProductGallery from "./ProductGallery/ProductGallery";
 import ProductInfo from "./ProductInfo/ProductInfo";
