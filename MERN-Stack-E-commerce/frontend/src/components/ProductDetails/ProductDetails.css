@@ -11,6 +11,56 @@
     justify-content: space-between;
 }
 
+/* BreadCrump */
+
+.single-product .breadcrumb ul {
+    display: flex;
+}
+
+.single-product .breadcrumb ul li {
+    font-size: 13px;
+}
+
+.single-product .breadcrumb ul li:not(:last-child):after {
+    content: "/";
+    color: #dee0ea;
+    margin: 0 5px;
+}
+
+.single-product .breadcrumb ul li a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* BreadCrump.jsx */
+/* import "./BreadCrump.css"
+
+const BreadCrump = () => {
+  return (
+    <div className="single-topbar">
+      <nav className="breadcrumb">
+        <ul>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Man</a>
+          </li>
+          <li>
+            <a href="#">Pants</a>
+          </li>
+          <li>Ridley High Waist</li>
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+export default BreadCrump;
+ */
+
+
+
 /* responsive */
 
 @media (max-width: 768px) {
