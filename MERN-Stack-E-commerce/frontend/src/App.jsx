@@ -9,6 +9,9 @@ import ContactPage from "./pages/ContactPage";
 import ShopPage from "./pages/ShopPage";
 import AdminUserPage from "./pages/admin/AdminUserPage";
 import "./App.css";
+import AdminCategoryPage from "./pages/admin/categories/AdminCategoryPage";
+import AdminUpdateCategoryPage from "./pages/admin/categories/AdminUpdateCategoryPage";
+import AdminCreateCategoryPage from "./pages/admin/categories/AdminCreateCategoryPage";
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
       <Route path="/product/:id" element={<ProductDetailsPage />} />
       <Route path="/admin/*">
         <Route path="users" element={<AdminUserPage />} />
+        <Route path="categories" element={<AdminCategoryPage />} />
+        <Route path="categories/create" element={<AdminCreateCategoryPage />} />
+        <Route path="categories/update/:id" element={<AdminUpdateCategoryPage />} />
       </Route>
     </Routes>
   );
