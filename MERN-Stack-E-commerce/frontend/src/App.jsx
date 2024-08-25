@@ -15,6 +15,7 @@ import AdminCreateCategoryPage from "./pages/admin/categories/AdminCreateCategor
 import AdminCreateProductPage from "./pages/admin/products/AdminCreateProductPage";
 import AdminProductPage from "./pages/admin/products/AdminProductPage";
 import AdminUpdateProductPage from "./pages/admin/products/AdminUpdateProductPage";
+import AdminCouponPage from "./pages/admin/coupons/AdminCouponPage";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           path="products/update/:id"
           element={<AdminUpdateProductPage />}
         />
+        <Route path="coupons" element={<AdminCouponPage />} />
       </Route>
     </Routes>
   );

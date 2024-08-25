@@ -91,27 +91,12 @@ const AdminLayout = ({ children }) => {
       icon: <BarcodeOutlined />,
       label: "Coupons",
       path: "/admin/coupons",
-      children: [
-        {
-          key: "9",
-          label: "Coupons list",
-          path: "/admin/coupons",
-          onClick: () => {
-            navigate(`/admin/coupons`);
-          },
-        },
-        {
-          key: "10",
-          label: "Create new coupon",
-          path: "/admin/coupons/create",
-          onClick: () => {
-            navigate("/admin/coupons/create");
-          },
-        },
-      ],
+      onClick: () => {
+        navigate(`/admin/coupons`);
+      },
     },
     {
-      key: "11",
+      key: "10",
       icon: <UserOutlined />,
       label: "User List",
       path: "/admin/users",
@@ -120,7 +105,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "12",
+      key: "11",
       icon: <ShoppingCartOutlined />,
       label: "Orders",
       onClick: () => {
@@ -128,7 +113,7 @@ const AdminLayout = ({ children }) => {
       },
     },
     {
-      key: "13",
+      key: "12",
       icon: <RollbackOutlined />,
       label: "Go to Home Page",
       onClick: () => {
