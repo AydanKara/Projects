@@ -12,6 +12,9 @@ import "./App.css";
 import AdminCategoryPage from "./pages/admin/categories/AdminCategoryPage";
 import AdminUpdateCategoryPage from "./pages/admin/categories/AdminUpdateCategoryPage";
 import AdminCreateCategoryPage from "./pages/admin/categories/AdminCreateCategoryPage";
+import AdminCreateProductPage from "./pages/admin/products/AdminCreateProductPage";
+import AdminProductPage from "./pages/admin/products/AdminProductPage";
+import AdminUpdateProductPage from "./pages/admin/products/AdminUpdateProductPage";
 
 function App() {
   return (
@@ -28,7 +31,16 @@ function App() {
         <Route path="users" element={<AdminUserPage />} />
         <Route path="categories" element={<AdminCategoryPage />} />
         <Route path="categories/create" element={<AdminCreateCategoryPage />} />
-        <Route path="categories/update/:id" element={<AdminUpdateCategoryPage />} />
+        <Route
+          path="categories/update/:id"
+          element={<AdminUpdateCategoryPage />}
+        />
+        <Route path="products/create" element={<AdminCreateProductPage />} />
+        <Route path="products" element={<AdminProductPage />} />
+        <Route
+          path="products/update/:id"
+          element={<AdminUpdateProductPage />}
+        />
       </Route>
     </Routes>
   );

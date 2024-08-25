@@ -34,7 +34,7 @@ router.get("/:productId", async (req, res) => {
 // Read - All
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await Product.find().populate("category");
 
     res.status(200).json(products);
   } catch (error) {
@@ -55,11 +55,9 @@ router.put("/:productId", async (req, res) => {
       res.status(404).json({ error: "Product not found" });
     }
 
-    const updatedProduct = await Product.findByIdAndUpdate(
-      productId,
-      updates,
-      { new: true }
-    );
+    const updatedProduct = await Product.findByIdAndUpdate(productId, updates, {
+      new: true,
+    });
 
     res.status(200).json(updatedProduct);
   } catch (error) {
