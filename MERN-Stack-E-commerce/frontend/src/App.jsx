@@ -7,6 +7,7 @@ import CartPage from "./pages/CartPage";
 import AccountPage from "./pages/AccountPage";
 import ContactPage from "./pages/ContactPage";
 import ShopPage from "./pages/ShopPage";
+import AdminUserPage from "./pages/admin/AdminUserPage";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/auth" element={<AccountPage />} />
       <Route path="/product/:id" element={<ProductDetailsPage />} />
+      <Route path="/admin/*">
+        <Route path="users" element={<AdminUserPage />} />
+      </Route>
     </Routes>
   );
 }
