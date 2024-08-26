@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
 import ProductItem from "./ProductItem";
-import ProductData from "../../data.json";
 import "./Products.css";
 
 function NextBtn({ onClick }) {
@@ -38,7 +37,23 @@ PrevBtn.propTypes = {
 };
 
 const Products = () => {
-  const [products] = useState(ProductData);
+  const [products, setProducts] = useState([]);
+
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+  useEffect(() => {
+    // Fetch categories for the select dropdown
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`${apiUrl}/api/products`);
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Failed to fetch products", error);
+      }
+    };
+    fetchProducts();
+  }, [apiUrl]);
 
   const settings = {
     dots: false,
@@ -75,7 +90,7 @@ const Products = () => {
           <div className="glide__track" data-glide-el="track">
             <Slider {...settings}>
               {products.map((product) => (
-                <ProductItem product={product} key={product.id} />
+                <ProductItem product={product} key={product._id} />
               ))}
             </Slider>
           </div>

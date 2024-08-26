@@ -7,14 +7,21 @@ import { Link } from "react-router-dom";
 const ProductItem = ({ product }) => {
   const { cartItems, addToCart } = useContext(CartContext);
 
-  const filteredCart = cartItems.find((cartItem) => cartItem.id === product.id);
+  const filteredCart = cartItems.find(
+    (cartItem) => cartItem._id === product._id
+  );
+
+  const originalPrice = product.price.current;
+  const discountPercent = product.price.discount;
+  const discountedPrice =
+    originalPrice - (originalPrice * discountPercent) / 100;
 
   return (
     <div className="product-item glide__slide">
       <div className="product-image">
         <a href="#">
-          <img src={product.img.singleImage} alt="" className="img1" />
-          <img src={product.img.thumbs[1]} alt="" className="img2" />
+          <img src={product.img[0]} alt="" className="img1" />
+          <img src={product.img[1]} alt="" className="img2" />
         </a>
       </div>
       <div className="product-info">
@@ -39,16 +46,15 @@ const ProductItem = ({ product }) => {
           </li>
         </ul>
         <div className="product-prices">
-          <strong className="new-price">
-            ${product.price.newPrice.toFixed(2)}
-          </strong>
-          <span className="old-price">
-            ${product.price.oldPrice.toFixed(2)}
-          </span>
+          <strong className="new-price">€{discountedPrice.toFixed(2)}</strong>
+          <span className="old-price">€{originalPrice.toFixed(2)}</span>
         </div>
-        <span className="product-discount">-{product.discount}%</span>
+        <span className="product-discount">-{product.price.discount}%</span>
         <div className="product-links">
-          <button onClick={() => addToCart(product)} disabled={filteredCart}>
+          <button
+            onClick={() => addToCart({ ...product, price: discountedPrice })}
+            disabled={filteredCart}
+          >
             <i className="bi bi-basket-fill" />
           </button>
           <button>
