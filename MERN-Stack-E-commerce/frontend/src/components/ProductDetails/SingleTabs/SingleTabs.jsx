@@ -1,8 +1,15 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
+
 import Reviews from "../../Reviews/Reviews";
 import "./SingleTabs.css";
 
-const SingleTabs = () => {
+function capitalizeFirstLetter(string) {
+  if (string.length === 0) return string;
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const SingleTabs = ({ product }) => {
   const [activeTab, setActiveTab] = useState("desc");
 
   const handleTabClick = (e, tab) => {
@@ -47,25 +54,7 @@ const SingleTabs = () => {
             activeTab === "desc" ? "active" : ""
           }`}
         >
-          <p>
-            Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin
-            vitae magna in dui finibus malesuada et at nulla. Morbi elit ex,
-            viverra vitae ante vel, blandit feugiat ligula. Fusce fermentum
-            iaculis nibh, at sodales leo maximus a. Nullam ultricies sodales
-            nunc, in pellentesque lorem mattis quis. Cras imperdiet est in nunc
-            tristique lacinia. Nullam aliquam mauris eu accumsan tincidunt.
-            Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.
-          </p>
-          <br />
-          <p>
-            Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin
-            vitae magna in dui finibus malesuada et at nulla. Morbi elit ex,
-            viverra vitae ante vel, blandit feugiat ligula. Fusce fermentum
-            iaculis nibh, at sodales leo maximus a. Nullam ultricies sodales
-            nunc, in pellentesque lorem mattis quis. Cras imperdiet est in nunc
-            tristique lacinia. Nullam aliquam mauris eu accumsan tincidunt.
-            Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.
-          </p>
+          {product.description}
         </div>
         <div
           className={`tab-panel-information content ${
@@ -78,22 +67,30 @@ const SingleTabs = () => {
               <tr>
                 <th>Color</th>
                 <td>
-                  <p>
-                    Apple Red, Bio Blue, Sweet Orange, Blue, Green, Pink, Black,
-                    White
-                  </p>
+                  {product.colors.map((color, index) => (
+                    <span key={index}>
+                      {capitalizeFirstLetter(color)}
+                      {index < product.colors.length - 1 && ", "}
+                    </span>
+                  ))}
                 </td>
               </tr>
               <tr>
                 <th>Size</th>
                 <td>
-                  <p>XXS, XS, S, M, L, XL, XXL</p>
+                  {product.sizes.map((size, index) => (
+                    <span key={index}>
+                      {size.toUpperCase()}
+                      {index < product.sizes.length - 1 && ", "}
+                    </span>
+                  ))}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <Reviews
+          product={product}
           active={activeTab === "reviews" ? "content active" : "content"}
         />
       </div>
@@ -102,3 +99,7 @@ const SingleTabs = () => {
 };
 
 export default SingleTabs;
+
+SingleTabs.propTypes = {
+  product: PropTypes.object,
+};

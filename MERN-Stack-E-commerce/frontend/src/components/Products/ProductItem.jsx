@@ -60,7 +60,7 @@ const ProductItem = ({ product }) => {
           <button>
             <i className="bi bi-heart-fill" />
           </button>
-          <Link to={`product/${product.id}`}>
+          <Link to={`product/${product._id}`}>
             <i className="bi bi-eye-fill" />
           </Link>
           <a href="#">

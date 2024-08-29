@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Slider from "react-slick";
 import PropTypes from "prop-types";
-import productsData from "../../../data.json";
 import "./ProductGallery.css";
 
 function NextBtn({ onClick }) {
@@ -36,7 +35,7 @@ PrevBtn.propTypes = {
   onClick: PropTypes.func,
 };
 
-const ProductGallery = () => {
+const ProductGallery = ({product}) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -48,7 +47,7 @@ const ProductGallery = () => {
   };
 
   const [activeImg, setActiveImg] = useState({
-    img: productsData[0].img.singleImage,
+    img: product.img[0],
     imgIndex: 0,
   });
 
@@ -61,12 +60,12 @@ const ProductGallery = () => {
         <div className="glide__track" data-glide-el="track">
           <ol className="gallery-thumbs glide__slides">
             <Slider {...settings}>
-              {productsData[0].img.thumbs.map((itemImg, index) => (
+              {product.img.map((itemImg, index) => (
                 <li
                   key={index}
                   onClick={() =>
                     setActiveImg({
-                      img: productsData[0].img.thumbs[index],
+                      img: itemImg,
                       imgIndex: index,
                     })
                   }
@@ -90,3 +89,7 @@ const ProductGallery = () => {
 };
 
 export default ProductGallery;
+
+ProductGallery.propTypes = {
+  product: PropTypes.object,
+};
