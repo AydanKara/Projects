@@ -1,11 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const app = express();
 const cors = require("cors");
 const logger = require("morgan");
 const mainRoute = require("./routes/index.js");
-/* const port = 5000; */
 
 dotenv.config();
 
@@ -18,6 +16,8 @@ const connectDatabase = async () => {
   }
 };
 
+const app = express();
+
 // middlewares
 app.use(logger("dev"));
 app.use(express.json());
@@ -25,7 +25,7 @@ app.use(cors());
 
 app.use("/api", mainRoute);
 
-app.listen(port, () => {
-  connectDatabase();
-  console.log(`Server listening on ${port}`);
-});
+connectDatabase();
+module.exports = app;
+
+
