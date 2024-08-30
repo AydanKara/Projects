@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const logger = require("morgan");
-const mainRoute = require("./routes/index.js");
+const mainRoute = require("../routes/index.js");
 
 dotenv.config();
 
@@ -27,5 +27,3 @@ app.use("/api", mainRoute);
 
 connectDatabase();
 module.exports = app;
-
-
