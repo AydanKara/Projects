@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const app = express();
 const cors = require("cors");
 const logger = require("morgan");
-const mainRoute = require("../routes/index.js");
+const mainRoute = require("./routes/index.js");
+const port = 5000;
 
 dotenv.config();
 
@@ -12,19 +14,18 @@ const connectDatabase = async () => {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected to MongoDB");
   } catch (error) {
-    console.error("Couldn't connect to MongoDB", error);
     throw new Error("Couldn't connect to MongoDB");
   }
 };
-
-const app = express();
 
 // middlewares
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cors());
+
 app.use("/api", mainRoute);
 
-connectDatabase();
-
-module.exports = app;
+app.listen(port, () => {
+  connectDatabase();
+  console.log(`Server listening on ${port}`);
+});
