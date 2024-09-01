@@ -77,6 +77,7 @@
     padding: 4px 10px;
     border-right: 1px solid #dee0ea;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .tab-panel-reviews .comment-form-rating .stars i {

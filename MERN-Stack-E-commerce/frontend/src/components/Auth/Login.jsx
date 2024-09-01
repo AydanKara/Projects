@@ -32,7 +32,7 @@ const Login = () => {
         const data = await response.json();
 
         // eslint-disable-next-line no-unused-vars
-        const { password, avatar, id, ...restData } = data;
+        const { password, avatar, ...restData } = data;
 
         localStorage.setItem("user", JSON.stringify(restData));
         message.success("Login successful");

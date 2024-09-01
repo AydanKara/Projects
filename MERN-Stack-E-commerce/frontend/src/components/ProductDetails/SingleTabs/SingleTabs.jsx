@@ -9,7 +9,7 @@ function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const SingleTabs = ({ product }) => {
+const SingleTabs = ({ product, setSingleProduct }) => {
   const [activeTab, setActiveTab] = useState("desc");
 
   const handleTabClick = (e, tab) => {
@@ -91,6 +91,7 @@ const SingleTabs = ({ product }) => {
         </div>
         <Reviews
           product={product}
+          setSingleProduct={setSingleProduct}
           active={activeTab === "reviews" ? "content active" : "content"}
         />
       </div>
@@ -102,4 +103,5 @@ export default SingleTabs;
 
 SingleTabs.propTypes = {
   product: PropTypes.object,
+  setSingleProduct: PropTypes.func,
 };
