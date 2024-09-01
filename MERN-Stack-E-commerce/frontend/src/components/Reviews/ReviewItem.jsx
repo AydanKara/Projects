@@ -8,7 +8,7 @@ const ReviewItem = ({ reviewItem }) => {
     "de-DE",
     options
   );
-  console.log(review);
+ 
   return (
     <li className="comment-item">
       <div className="comment-avatar">

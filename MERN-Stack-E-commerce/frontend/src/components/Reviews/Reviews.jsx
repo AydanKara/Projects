@@ -29,8 +29,6 @@ const Reviews = ({ active, product, setSingleProduct }) => {
     fetchUsers();
   }, [apiUrl]);
 
-  console.log(users)
-
   product.reviews.forEach((review) => {
     const matchingUsers = users?.filter((user) => user._id === review.user);
 
