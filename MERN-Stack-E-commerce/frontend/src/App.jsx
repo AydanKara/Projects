@@ -16,6 +16,9 @@ import AdminCreateProductPage from "./pages/admin/products/AdminCreateProductPag
 import AdminProductPage from "./pages/admin/products/AdminProductPage";
 import AdminUpdateProductPage from "./pages/admin/products/AdminUpdateProductPage";
 import AdminCouponPage from "./pages/admin/coupons/AdminCouponPage";
+import Success from "./pages/Success";
+import AdminOrderPage from "./pages/admin/AdminOrderPage";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
 
 function App() {
   return (
@@ -28,7 +31,10 @@ function App() {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/auth" element={<AccountPage />} />
       <Route path="/product/:id" element={<ProductDetailsPage />} />
+      <Route path="/success" element={<Success />} />
+
       <Route path="/admin/*">
+        <Route index element={<AdminDashboardPage />} />
         <Route path="users" element={<AdminUserPage />} />
         <Route path="categories" element={<AdminCategoryPage />} />
         <Route path="categories/create" element={<AdminCreateCategoryPage />} />
@@ -43,6 +49,7 @@ function App() {
           element={<AdminUpdateProductPage />}
         />
         <Route path="coupons" element={<AdminCouponPage />} />
+        <Route path="orders" element={<AdminOrderPage />} />
       </Route>
     </Routes>
   );
