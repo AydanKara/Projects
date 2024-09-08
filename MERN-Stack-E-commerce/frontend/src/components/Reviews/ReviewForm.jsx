@@ -13,6 +13,9 @@ const ReviewForm = ({ product, setSingleProduct }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (rating === 0) {
+      return message.warning("Please select a rating!");
+    }
     const formData = {
       reviews: [
         ...product.reviews,
@@ -43,8 +46,6 @@ const ReviewForm = ({ product, setSingleProduct }) => {
       console.error("Failed to add review", error);
       message.error("Failed to add review.");
     }
-
-    console.log(formData);
   };
 
   return (
@@ -114,6 +115,7 @@ const ReviewForm = ({ product, setSingleProduct }) => {
             rows={10}
             onChange={(e) => setReview(e.target.value)}
             value={review}
+            required
           />
         </div>
         <div className="form-submit">

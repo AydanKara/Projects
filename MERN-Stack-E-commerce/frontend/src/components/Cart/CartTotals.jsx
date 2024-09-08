@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartProvider";
 import { loadStripe } from "@stripe/stripe-js";
-import { message } from "antd";
+import { message, Spin } from "antd";
 
 const CartTotals = () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   const [fastCargoChecked, setFastCargoChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { cartItems } = useContext(CartContext);
 
   const user = localStorage.getItem("user")
@@ -29,6 +30,7 @@ const CartTotals = () => {
     : subTotals.toFixed(2);
 
   const handlePayment = async () => {
+    setLoading(true);
     if (!user) return message.info("You must be logged in to receive payments");
 
     const body = {
@@ -37,7 +39,7 @@ const CartTotals = () => {
       cargoFee: fastCargoChecked ? cargoFee : 0,
     };
 
-    console.log(body)
+    console.log(body);
 
     try {
       const stripe = await loadStripe(
@@ -64,6 +66,8 @@ const CartTotals = () => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -108,9 +112,11 @@ const CartTotals = () => {
           </tbody>
         </table>
         <div className="checkout">
-          <button className="btn btn-lg" onClick={handlePayment}>
-            Proceed to checkout
-          </button>
+          <Spin spinning={loading}>
+            <button className="btn btn-lg" onClick={handlePayment}>
+              Proceed to checkout
+            </button>
+          </Spin>
         </div>
       </div>
     </div>

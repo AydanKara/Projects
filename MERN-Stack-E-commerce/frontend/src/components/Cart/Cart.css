@@ -211,6 +211,20 @@
 
 /*? collaterals end */
 
+/* spin css */
+
+.cart-totals .ant-spin {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.cart-totals .ant-spin .ant-spin-dot {
+    position: relative !important;
+    inset-inline-start: unset !important;
+    margin: unset !important;
+}
+
 /*! cart form end */
 
 @media (max-width: 992px) {

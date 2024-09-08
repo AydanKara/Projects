@@ -1,7 +1,8 @@
-import "./Search.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { message } from "antd";
-import { useState } from "react";
+import "./Search.css";
 
 const Search = ({ isSearchShow, setIsSearchShow }) => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
@@ -63,7 +64,11 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
               </a>
             )}
             {searchResults?.map((resultItem) => (
-              <a href="#" className="result-item" key={resultItem._id}>
+              <Link
+                to={`product/${resultItem._id}`}
+                className="result-item"
+                key={resultItem._id}
+              >
                 <img src={resultItem.img[0]} className="search-thump" alt="" />
                 <div className="search-info">
                   <h4>{resultItem.name}</h4>
@@ -72,7 +77,7 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
                     $ {resultItem.price.current.toFixed(2)}
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -82,10 +87,7 @@ const Search = ({ isSearchShow, setIsSearchShow }) => {
           onClick={handleSearchResults}
         />
       </div>
-      <div
-        className="modal-overlay"
-        onClick={handleSearchResults}
-      ></div>
+      <div className="modal-overlay" onClick={handleSearchResults}></div>
     </div>
   );
 };
