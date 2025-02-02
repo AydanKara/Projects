@@ -1,2 +1,2 @@
-# Udemi-Courses-Projects
+# Udemy-Courses-Projects
 
